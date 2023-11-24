@@ -1,0 +1,53 @@
+<div class="wraper">
+    <div class="heading">
+        <h1>Conversion of weight units</h1>
+    </div>
+    <div class="scales">
+        <div><img src="\assets\scale.webp"></div>
+        <th>Exchange Numbers</th>
+        <div><img src="\assets\scale.webp"></div>
+    </div>
+    <div class="calculation-div">
+        <form action="#" class="calculation" (ngSubmit)="onSubmit()">
+            <legend>Change:</legend>
+            <span>Choose what you want to change:
+                <select name="units" id="fromUnit" [(ngModel)]="calunit " required>
+                    <option value="pikogramm">pikogramm</option>
+                    <option value="nanogramm">nanogramm</option>
+                    <option value="mikrogramm">mikrogramm</option>
+                    <option value="miligramm">miligramm</option>
+                    <option value="dekagramm">dekagramm</option>
+                    <option value="kilogramm">kilogramm</option>
+                    <option value="quintal">quintal</option>
+                    <option value="tons">tons</option>
+                    <option value="font">font</option>
+                    <option value="ounce">ounce</option>
+                    <option value="karat">karat</option>
+                </select>
+                Enter a unit you want to exchange: <input type="number" [(ngModel)]="textval" name="textValue">
+                Choose what you want to change in:
+                <select name="units" id="toUnit" [(ngModel)]=" calname" required>
+                    <option value="pikogramm">pikogramm</option>
+                    <option value="nanogramm">nanogramm</option>
+                    <option value="mikrogramm">mikrogramm</option>
+                    <option value="miligramm">miligramm</option>
+                    <option value="dekagramm">dekagramm</option>
+                    <option value="kilogramm">kilogramm</option>
+                    <option value="quintal">quintal</option>
+                    <option value="tons">tons</option>
+                    <option value="font">font</option>
+                    <option value="ounce">ounce</option>
+                    <option value="karat">karat</option>
+                </select>
+            </span>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="calculation-div">
+        <form action="#" class="calculation">
+            <span>
+                Change Result: {{result}}
+            </span>
+        </form>
+    </div>
+</div>

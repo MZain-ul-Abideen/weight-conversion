@@ -1,0 +1,45 @@
+.wraper {
+  width: 100%;
+  height: auto;
+}
+
+.heading {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.heading h1 {
+  color: blue;
+  font-family: Tahoma;
+}
+
+.scales {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.scales img {
+  width: 200px;
+  height: 100px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.calculation-div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.calculation {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #000;
+  margin-bottom: 100px;
+}
