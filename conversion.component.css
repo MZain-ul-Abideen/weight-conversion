@@ -1,45 +1,106 @@
-.wraper {
-  width: 100%;
+body {
+  background-color: #EDF8E9;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+    text-align: justify;
+    scroll-behavior: smooth;
+    cursor: default;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.main-container {
+  width: auto;
   height: auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 9999;
+}
+
+.illustration-div {
+  border-radius: 28% 72% 72% 28% / 44% 54% 46% 56%  ;
+  height: 650px;
+  width: 650px;
+  position: absolute;
+  background-color: #C7E9C0;
+}
+
+.carte-div {
+  padding: 50px;
 }
 
 .heading {
+  color: #005A32;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.heading-2 {
+  color: #238B45;
+}
+
+.input-field {
   width: 100%;
-  display: flex;
-  align-items: start;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  height: 30px;
+  margin-bottom: 20px;
+  border: 1px solid #8f8f8f;
+  padding-left: 15px;
 }
 
-.heading h1 {
-  color: blue;
-  font-family: Tahoma;
+.drop-downs {
+  width: 100%;
 }
 
-.scales {
+.drop-downs select {
+  width: 80%;
+  background-color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 0.1rem;
+  border: 1px solid #8f8f8f;
+  margin-bottom: 10px;
+}
+
+.submit-btn button {
+  background-color: #238B45;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 0.5rem;
+}
+.lable-drop-down{
+  margin-left: 5px;
+}
+
+.result-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 50px;
-}
-
-.scales img {
-  width: 200px;
-  height: 100px;
-  margin-left: 80px;
-  margin-right: 80px;
-}
-
-.calculation-div {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-}
-
-.calculation {
-  width: 90%;
-  padding: 10px;
-  border: 1px solid #000;
-  margin-bottom: 100px;
+  margin-top: 20px;
 }

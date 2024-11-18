@@ -1,60 +1,100 @@
-< class="wraper">
-    <div class="heading">
-        <h1>Conversion of weight units</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/conversion.component.css">
+    <title>The Converter</title>
+</head>
+<body>
+    <div class="illustration-div"></div>
+    <div class="main-container">
+        <div class="carte-div">
+            <h1 class="heading">Conversion of Weight Units</h1>
+            <h2 class="heading-2">Exchange Numbers</h2>
+            <div class="calculator-div">
+                <form onsubmit="calcFunction(event)" class="calculation">
+                    <input type="number" id="textval" placeholder="Enter a Number You Want to Convert" name="textValue" class="input-field" required>
+                    <div class="drop-downs">
+                        <div>
+                            <select id="toUnit" required>
+                                <option value="pikogram">pikogram</option>
+                                <option value="nanogram">nanogram</option>
+                                <option value="mikrogram">mikrogram</option>
+                                <option value="miligram">miligram</option>
+                                <option value="dekagram">dekagram</option>
+                                <option value="kilogram">kilogram</option>
+                                <option value="quintal">quintal</option>
+                                <option value="tons">tons</option>
+                                <option value="font">font</option>
+                                <option value="ounce">ounce</option>
+                                <option value="karat">karat</option>
+                            </select>
+                            <span class="label-drop-down">From</span>
+                        </div>
+                        <div>
+                            <select id="fromUnit" required>
+                                <option value="pikogram">pikogram</option>
+                                <option value="nanogram">nanogram</option>
+                                <option value="mikrogram">mikrogram</option>
+                                <option value="miligram">miligram</option>
+                                <option value="dekagram">dekagram</option>
+                                <option value="kilogram">kilogram</option>
+                                <option value="quintal">quintal</option>
+                                <option value="tons">tons</option>
+                                <option value="font">font</option>
+                                <option value="ounce">ounce</option>
+                                <option value="karat">karat</option>
+                            </select>
+                            <span class="label-drop-down">To</span>
+                        </div>
+                    </div>
+                    <div class="result-btn">
+                        <span id="resultDisplay">Change Result: </span>
+                        <div class="submit-btn">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="scales">
-        <div><img src="\assets\scale.webp"></div>
-        <th>Exchange Numbers</th>
-        <div><img src="\assets\scale.webp"></div>
-    </div>
-    <div></div>
-    <div class="calculation-div">
-        <form action="#" class="calculation" (ngSubmit)="onSubmit()">
-            <legend>Change:</legend>
-            <span>Choose what you want to change:
-                <select name="units" id="fromUnit" [(ngModel)]="calunit " required>
-                    <option value="pikogramm">pikogramm</option>
-                    <option value="nanogramm">nanogramm</option>
-                    <option value="mikrogramm">mikrogramm</option>
-                    <option value="miligramm">miligramm</option>
-                    <option value="dekagramm">dekagramm</option>
-                    <option value="kilogramm">kilogramm</option>
-                    <option value="quintal">quintal</option>
-                    <option value="tons">tons</option>
-                    <option value="font">font</option>
-                    <option value="ounce">ounce</option>
-                    <option value="karat">karat</option>
-                </select>
-                Enter a unit you want to exchange: <input type="number" [(ngModel)]="textval" name="textValue">
-                Choose what you want to change in:
-                <select name="units" id="toUnit" [(ngModel)]=" calname" required>
-                    <option value="pikogramm">pikogramm</option>
-                    <option value="nanogramm">nanogramm</option>
-                    <option value="mikrogramm">mikrogramm</option>
-                    <option value="miligramm">miligramm</option>
-                    <option value="dekagramm">dekagramm</option>
-                    <option value="kilogramm">kilogramm</option>
-                    <option value="quintal">quintal</option>
-                    <option value="tons">tons</option>
-                    <option value="font">font</option>
-                    <option value="ounce">ounce</option>
-                    <option value="karat">karat</option>
-                </select>
-            </span>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-    <div class="calculation-div">
-        <form action="#" class="calculation">
-            <span>
-                Change Result: {{result}}
-            </span>
-        </form>
-    </div>
-</div>
+</body>
+<script>
+    const conversionRates = {
+        pikogram: 1e12,
+        nanogram: 1e9,
+        mikrogram: 1e6,
+        miligram: 1e3,
+        dekagram: 100,
+        kilogram: 1,
+        quintal: 0.01,
+        tons: 0.001,
+        font: 0.000984207,
+        ounce: 35.274,
+        karat: 5000,
+    };
 
+    function calcFunction(event) {
+        event.preventDefault(); // Prevent form submission and page reload
 
-<div>New changes  added</div>
-<div>New changes  added</div>
-<div>New changes  added</div>
-<div>New changes  added</div>
+        const textval = parseFloat(document.getElementById("textval").value);
+        const fromUnit = document.getElementById("fromUnit").value;
+        const toUnit = document.getElementById("toUnit").value;
+
+        if (!isNaN(textval) && fromUnit && toUnit) {
+            const fromRate = conversionRates[fromUnit];
+            const toRate = conversionRates[toUnit];
+
+            // Perform the conversion
+            const result = (textval * fromRate) / toRate;
+
+            // Display the result
+            document.getElementById("resultDisplay").textContent = `Change Result: ${result.toFixed(4)}`;
+        } else {
+            console.error("Please select valid values.");
+            document.getElementById("resultDisplay").textContent = "Change Result: Error!";
+        }
+    }
+</script>
+</html>
